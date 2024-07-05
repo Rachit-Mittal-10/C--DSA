@@ -32,6 +32,8 @@ int fibonacci(int n, vector<int>& memory){
 * Tabulation
 * No Recursion
 * Only Loops
+* Time Complexity: O(N)
+* Space Complexity: O(N)
 */
 int Fibonacci(int n){
     vector<int> table(n + 1, -1);
@@ -49,6 +51,29 @@ int Fibonacci(int n){
     return table[n]; 
 }
 
+/*
+* Space Optimised Fibonacci Code
+* Time Complexity: O(N)
+* Space Complexity: O(N)
+*/
+int fibonacciSpace(int n) {
+    if (n < 0) {
+        return -1;
+    }
+    if (n <= 1) {
+        return n;
+    }
+    int prev2 = 0;
+    int prev = 1;
+    int curr;
+    for (int i = 2; i <= n; i++) {
+        curr = prev + prev2;
+        prev2 = prev;
+        prev = curr;
+    }
+    return curr;
+}
+
 int main(){
     int n;
     cout << "Enter the n: ";
@@ -59,5 +84,8 @@ int main(){
     cout << endl;
     cout << "Tabulation" << endl;
     cout << "fibonacci of " << n << ": " << Fibonacci(n) << endl;
+    cout << endl;
+    cout << "Space Optimised" << endl;
+    cout << "fibonacci of " << n << ": " << fibonacciSpace(n) << endl;
     return 0;
 }
