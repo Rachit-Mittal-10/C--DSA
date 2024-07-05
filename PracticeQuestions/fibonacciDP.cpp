@@ -1,6 +1,5 @@
 #include<iostream>
 #include<vector>
-#include<chrono>
 using namespace std;
 /*
 Time Complexity: O(N)
@@ -19,18 +18,10 @@ int fibonacci(int n, vector<int>& memory){
     }
     // We check if we have value stored
     // if not then value calculated
-    int n1, n2;
-    if(memory[n-1] != -1){
-        n1 = memory[n-1];
-    }else{
-        n1 = fibonacci(n-1,memory);
+    if (memory[n] != -1) {
+        return memory[n];
     }
-    if(memory[n-2] != -1){
-        n2 = memory[n-2];
-    }else{
-        n2 = fibonacci(n-2,memory);
-    }
-    int fib = n1 + n2;
+    int fib = fibonacci(n-1,memory) + fibonacci(n-2,memory);
     memory[n] = fib;
     return fib;
 }
@@ -48,20 +39,6 @@ int main(){
     cout << "Enter the n: ";
     cin >> n;
     vector<int> memory(n+1,-1);
-    /*
-    chrono::high_resolution_clock::time_point start, end;
-    chrono::duration<double> duration;
-    start = chrono::high_resolution_clock::now();
-    int ansMemory = fibonacci(n,memory);
-    end = chrono::high_resolution_clock::now();
-    duration = end - start;
-    cout << duration.count() << endl;
-    start = chrono::high_resolution_clock::now();
-    int ansRecur = Fibonacci(n);
-    end = chrono::high_resolution_clock::now();
-    duration = end - start;
-    cout << duration.count() << endl;
-    */
     cout << "fibonacci of " << n <<  ": " << fibonacci(n, memory) << endl;
     return 0;
 }
