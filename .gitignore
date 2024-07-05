@@ -3,3 +3,7 @@
 /.vscode
 /.vs
 /.CppProperties.json
+/bin
+/DSA*
+/x64
+/Debug
