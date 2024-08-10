@@ -34,6 +34,24 @@ B) For Random Pointer
     Revert changes
 */
 
+#include<iostream>
+#include<unordered_map>>
+using namespace std;
+
+class Node{
+public:
+    Node* next;
+    int data;
+    Node(int data){
+        this->data = data;
+        this->next = nullptr;
+    }
+    Node(int data, Node* next){
+        this->data = data;
+        this->next = next;
+    }
+};
+
 // Code of Approach2
 Node *copyList2(Node *head){
     Node *temp = head;

@@ -1,15 +1,16 @@
 #include<bits/stdc++.h>
-#include<D:\C++\Print.hpp>
+#include<../Print.hpp>
 using namespace std;
 
 class Heap{
 public:
     int arr[100];
-    int size = 0;
+    int size;
 
     Heap(){
         for(int i=0;i<100;i++){
             arr[i] = 0;
+            size = 0;
         }
     }
 
