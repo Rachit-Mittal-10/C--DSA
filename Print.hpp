@@ -2,14 +2,16 @@
 #include<vector>
 using namespace std;
 
-void Print(vector<int>& arr){
+template <typename type>
+void Print(vector<type>& arr){
     int size = arr.size();
     for(int i=0;i<size;i++){
         cout << arr[i] << " ";
     }cout << endl;
 }
 
-void Print(vector<vector<int>> &arr){
+template <typename type>
+void Print(vector<vector<type>> &arr){
     int row = arr.size();
     int col = arr[0].size();
     for(int i=0;i<row;i++){
