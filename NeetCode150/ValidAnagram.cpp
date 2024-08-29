@@ -1,9 +1,9 @@
 /*
 
-Return true if s and t are Valid Anagrams otherwise false
-LeetCode Question: 242
+todo Return true if s and t are Valid Anagrams otherwise false
+* LeetCode Question: 242
 
-Anagram is basically a word which is made by rearranging of character in word i.e. both word uses same characters in same frequency
+? Anagram is basically a word which is made by rearranging of character in word i.e. both word uses same characters in same frequency
 
 */
 
@@ -24,12 +24,12 @@ int main(void){
 }
 /*
 
-In this approach, We create a map from one string storing the amount of character present in string and compare that data with other string
+* In this approach, We create a map from one string storing the amount of character present in string and compare that data with other string
 
-Time Complexity: O(S+T)
+* Time Complexity: O(S+T)
 - Since we traverse both the string exactly once
 
-Space Complexity: O(S)
+* Space Complexity: O(S)
 - Since we storing the count of one string in hashmap
 
 */

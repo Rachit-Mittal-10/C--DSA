@@ -10,7 +10,7 @@ using namespace std;
 
 /*
 * Approach
-- @param nums: vector<int>
+@param nums: vector<int>
 - Sort the Array
 - Initialise a count array which will store the longest common subsequence till that point will all entries 1 and length equal to nums
 - run a loop from i=1 to n:

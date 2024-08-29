@@ -8,7 +8,7 @@ Here We need to tell whether there's exist an element which occurs twice or not
 #include<vector>
 using namespace std;
 /*
-Approach
+* Approach
 - Initialise the map which stores whether the element has been visited or not
 - For i=0 to n:
     - If key exist in map then return true
