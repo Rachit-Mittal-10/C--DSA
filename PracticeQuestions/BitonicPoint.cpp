@@ -6,6 +6,13 @@ todo: We have given a array which is strictly increasing and then maybe strictly
 #include<iostream>
 using namespace std;
 
+/*
+*Approach Binary Search
+- Apply Binary Search to find the maximum element
+- Maximum Element would be greater than left and right element
+- Edge Cases: mid == n-1 or mid==0
+*/
+
 class Solution{
 public:
 	int findMaximum(int arr[], int n) {
@@ -35,7 +42,7 @@ public:
 };
 
 int main(void){
-    int arr[5] = {1,2,3,4,5};
+    int arr[5] = {5,4,3,2,1};
     int n = 5;
     cout << Solution().findMaximum(arr,n) << endl;
 }
