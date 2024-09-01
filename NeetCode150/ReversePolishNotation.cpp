@@ -10,6 +10,13 @@ todo: Evaluate the Reverse Polish Notation
 #include<vector>
 using namespace std;
 
+/*
+* Approach: Stack
+- Push the number into stack
+- If operand then pop two entries from stak and calculate the answer. Then push the answer to stack
+- At the end there would only be single answeer in Stack. return the top at that point.
+*/
+
 class Approach1{
     int getAnswer(int num1, int num2, string token){
         if(token  == "+"){
