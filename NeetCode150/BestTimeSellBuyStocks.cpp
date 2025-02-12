@@ -4,7 +4,11 @@
 using namespace  std;
 
 /*
+Given the prices array whhere prices[i] is the price of given stock on ith day.
 
+You want to maximise your profit by choosing a single day to buy the one stock and choosing different day to sell that stock.
+
+Return the maximum profit.
 */
 class Solution{
 public:
