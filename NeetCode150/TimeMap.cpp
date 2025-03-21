@@ -23,34 +23,19 @@ public:
         if(mp.find(key) == mp.end()){
             return "";
         }
-        auto vectorKey = mp[key];
+        auto& vectorKey = mp[key];
         int start = 0;
         int end = vectorKey.size()-1;
-        // int index = -1;
-        // for(int i=0;i<=end;i++){
-        //     if(vectorKey[i].first <= timestamp){
-        //         index = i;
-        //     }
-        // }
-        // if(index == -1){
-        //     return "";
-        // }
-        // return vectorKey[index].second;
         int mid = -1;
-        pair<int,string> curr;
         string result = "";
         while(start <= end){
             mid = (end-start)/2 + start;
-            curr = vectorKey[mid];
-            if(curr.first > timestamp){
+            if(vectorKey[mid].first > timestamp){
                 end = mid - 1;
             }
-            else if(curr.first < timestamp){
-                start = mid + 1;
-                result = curr.second;
-            }
             else{
-                return curr.second;
+                start = mid + 1;
+                result = vectorKey[mid].second;
             }
         }
         return result;
