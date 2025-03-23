@@ -4,6 +4,10 @@
 using namespace std;
 
 class MaxHeapSolution{
+/* 
+- TC: O(nlogn)
+- SC: O(n)
+*/
 public:
     int getKLargest(vector<int>& arr, int k){
         priority_queue<int> maxHeap;
