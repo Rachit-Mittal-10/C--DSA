@@ -7,7 +7,11 @@ todo LeetCode 153: Minimum in Rotated and Sorted Array
 #include<iostream>
 using namespace std;
 /* 
-: We assume that mid is where minimum index is.
+: We assume that mid is where minimum index is and keep track of minumum element found so far.
+: If mid has smaller element then update else move further to decrease subspace
+
+: Important Part is How to update the search space
+- 
 */
 int BinarySearch(vector<int>& arr){
     int start = 0;
