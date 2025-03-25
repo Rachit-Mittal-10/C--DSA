@@ -91,6 +91,54 @@ public:
     }
 };
 
+/* 
+: Check Striver video for this
+*/
+class XORApproach{
+public:
+    pair<int,int>  solve(vector<int>& a){
+        int n = a.size();
+        int xr = 0;
+        for(int i=0;i<n;i++){
+            xr = xr ^ a[i];
+            xr = xr ^ (i+1);
+        }
+        int bit = 0;
+        while(1){
+            if( (xr & (1<<bit)) != 0 ){
+                break;
+            }
+            bit++;
+        }
+        int zero = 0;
+        int one = 0;
+        for(int i=0;i<n;i++){
+            if(a[i] & (1<<bit) != 0){
+                one = one^a[i];
+            }
+            else{
+                zero = zero^a[i];
+            }
+            if(i & (1<<bit) != 0){
+                one = one^i;
+            }
+            else{
+                zero = zero^i;
+            }
+        }
+        int cnt = 0;
+        for(auto i:arr){
+            if(i == zero){
+                cnt++;
+            }
+        }
+        if(cnt == 2){
+            return {one,zero};
+        }
+        return {zero,one};
+    }
+}
+
 int main(void){
     vector<int> arr = {3,1,2,5,3};
     // auto S1 = BruteForceApproach().solve(arr,5);
