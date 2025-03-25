@@ -38,22 +38,39 @@ Assumption: There is only one pair with the given sum
 */
 
 class Optimised{
+    /* 
+    : There could be one more optimisation that Pivot could be find out by Binary Search. See Minimum in Rotated Sorted Array
+    */
+    int findPivotLinear(vector<int>& arr){
+        int i = 0;
+        int n = arr.size();
+        while(i<n-1){
+            if(arr[i] > arr[i+1]){
+                break;
+            }
+            i++;
+        }
+        return i;
+    }
 public:
     vector<pair<int,int>> solve(vector<int>& arr, int target){
-        int left = 0;
-        int right = arr.size()-1;
+        int pivot = findPivotLinear(arr);
+        int pivot = 
+        int n = arr.size();
+        int left = (pivot+1)%n;
+        int right = pivot;
         vector<pair<int,int>> result;
-        while(left < right){
+        while(left != right){
             int sum = arr[left] + arr[right];
             if(sum == target){
                 result.push_back(make_pair(arr[left],arr[right]));
                 break;
             }
             if(sum > target){
-                right--;
+                right = (right-1+n)%n;
             }
             if(sum < target){
-                left++;
+                left = (left+1)%n;
             }
         }
         return result;
