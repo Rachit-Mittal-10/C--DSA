@@ -17,6 +17,11 @@ public:
     }
 };
 
+
+/* 
+One More Way to do: Quick Select
+*/
+
 int main(void){
     vector<int> arr = {4,2,1,5,3,6};
     auto S = HeapSolution();
