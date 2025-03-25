@@ -50,10 +50,52 @@ class HashArrayApproach{public:
     }
 };
 
+class SpaceOptimised{
+    int sumN(int n){
+        return n*(n+1)/2;
+    }
+    int sumSquaredN(int n){
+        return n*(2*n+1)*(n+1)/6;
+    }
+    int arraySum(vector<int>& arr){
+        int sum = 0;
+        for(auto i:arr){
+            sum += i;
+        }
+        return sum;
+    }
+    int arraySquaredSum(vector<int>& arr){
+        int sum=0;
+        for(auto i:arr){
+            sum += i*i;
+        }
+        return sum;
+    }
+public:
+    pair<int,int> solve(vector<int>& arr, int n){
+        int t1 = sumN(n);
+        int t2 = sumSquaredN(n);
+        int t3 = arraySum(arr);
+        int t4 = arraySquaredSum(arr);
+
+        //  A-B
+        int t5 = t1-t3;
+        int t6 = t2-t4;
+        // A+B
+        int t7 = t6/t5;
+        // A repeating
+        // B missing
+        int t8 = (t5+t7)/2;
+        int t9 = (t7-t5)/2;
+        return make_pair(t8,t9);
+    }
+};
+
 int main(void){
     vector<int> arr = {3,1,2,5,3};
     // auto S1 = BruteForceApproach().solve(arr,5);
     auto S2 = HashArrayApproach().solve(arr,5);
-    // cout << S1.first << " " << S1.second << endl;
+    auto S3 = SpaceOptimised().solve(arr,5);
     cout << S2.first << " " << S2.second << endl;
+    cout << S3.first << " " << S3.second << endl;
 }
