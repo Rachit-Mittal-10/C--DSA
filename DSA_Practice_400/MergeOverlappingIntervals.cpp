@@ -8,7 +8,7 @@ class BruteForceApproach{
 public:
     vector<pair<int,int>> solve(vector<pair<int,int>>& ip){
         //  nlogn
-        sort(ip.begin(),ip.end());
+        sort(ip.begin(),ip.end()); 
         vector<pair<int,int>> result;
         int n = ip.size();
         // n since every element visted exactly once
@@ -32,9 +32,30 @@ public:
     }
 };
 
+class OptimisedSolution{
+public:
+    vector<pair<int,int>> solve(vector<pair<int,int>>& ip){
+        //  nlogn
+        sort(ip.begin(),ip.end()); 
+        vector<pair<int,int>> result;
+        int n = ip.size();
+        // n since every element visted exactly once
+        for(int i=0;i<n;i++){
+            if(result.empty() || ip[i].first > result.back().second){
+                result.push_back(ip[i]);
+            }
+            else{
+                result.back().second = max(result.back().second, ip[i].second);
+            }
+        }
+        return result;
+    }
+};
+
 int main(void){
     vector<pair<int,int>> ip = {{1,3},{2,4},{4,6},{8,10},{9,11},{8,11},{16,18},{15,17}};
-    auto S = BruteForceApproach();
+    // auto S = BruteForceApproach();
+    auto S = OptimisedSolution();
     auto result = S.solve(ip);
     for(auto &i: result){
         cout << i.first << " " << i.second << endl;
