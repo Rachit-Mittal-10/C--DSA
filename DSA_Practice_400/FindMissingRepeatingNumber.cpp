@@ -127,7 +127,7 @@ public:
             }
         }
         int cnt = 0;
-        for(auto i:arr){
+        for(auto i:a){
             if(i == zero){
                 cnt++;
             }
@@ -137,7 +137,7 @@ public:
         }
         return {zero,one};
     }
-}
+};
 
 int main(void){
     vector<int> arr = {3,1,2,5,3};
@@ -146,4 +146,5 @@ int main(void){
     auto S3 = SpaceOptimised().solve(arr,5);
     cout << S2.first << " " << S2.second << endl;
     cout << S3.first << " " << S3.second << endl;
+    return 0;
 }
