@@ -31,11 +31,3 @@ void Print(int arr[], int size){
         cout << arr[i] << " ";
     }cout << endl;
 }
-
-
-
-// void Print(int arr[][col], int row, int col){
-//     for(int i=0;i<row;i++){
-
-//     }
-// }
