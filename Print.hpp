@@ -1,22 +1,29 @@
 #include<iostream>
 #include<vector>
+#include<utility>
 using namespace std;
 
 template <typename type>
 void Print(vector<type>& arr){
-    int size = arr.size();
-    for(int i=0;i<size;i++){
-        cout << arr[i] << " ";
-    }cout << endl;
+    for(auto& i:arr){
+        cout << i << " ";
+    }
+    cout << endl;
 }
 
 template <typename type>
 void Print(vector<vector<type>> &arr){
-    int row = arr.size();
-    int col = arr[0].size();
-    for(int i=0;i<row;i++){
-        Print(arr[i]);
+    for(auto& i:arr){
+        Print(i);
     }
+}
+
+template <typename type1,typename type2>
+void Print(vector<pair<type1,type2>>& arr){
+    for(auto& i:arr){
+        cout << "[" << i.first << ", " << i.second << "]"; 
+    }
+    cout << endl;
 }
 
 void Print(int arr[], int size){
