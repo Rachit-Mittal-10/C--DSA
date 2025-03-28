@@ -1,48 +1,51 @@
-// LeetCode 53
-// Different from MaximumSumSubArray of size K
-
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<climits>
+#include<bits/stdc++.h>
 using namespace std;
 
-
-class IterativeBruteForceApproach{
+class BruteForceApproach{
 public:
-    /*
-    : Looping through each sub array and finding out the maximum
-    - TC: O(N^2)
-    - SC: O(1)
-    */
-    int MaximumSumSubArray1(vector<int>& arr){
-        int result = INT_MIN;
+    int solve(vector<int>& arr){
+        int MAX_SUM = INT_MIN;
         int n = arr.size();
-        int sum = 0;
         for(int i=0;i<n;i++){
-            sum = 0;
+            int sum = 0;
             for(int j=i;j<n;j++){
                 sum += arr[j];
-                result = max(result,sum);
+                MAX_SUM = max(MAX_SUM,sum);
             }
         }
-        return result;
+        return MAX_SUM;
     }
 };
 
-class RecursiveApproach{
-    /*
-    : Recursive Approach: At index i consider that element has two possibilities: Pick or Not Pick.
-    : Pick expands the array and Not Pick ends the array and calculates the sum
+class KadaneAlgorithm{
+    /* 
+    -2,1,-3,4,-1,2,1,-5,4
+    
     */
-    int maxSoFar = INT_MIN;
+public:
+    int solve(vector<int>& arr){
+        int sum = 0;
+        int MAX_SUM = INT_MIN;
+        int p1 = 0;
+        int p2 = 0;
+        int n = arr.size();
+        while(p1<n){
+            sum += arr[p1];
+            MAX_SUM = max(sum,MAX_SUM);
+            if(sum < 0){
+                sum = 0;
+            }
+            p1++;
+        }
+        return MAX_SUM;
+    }
 };
 
 int main(void){
-    vector<int> arr = {-2,-3,4,-1,-2,1,5,-3};
-    auto Solution1 = IterativeBruteForceApproach();
-    auto Solution2 = RecursiveApproach();
-    cout << Solution1.MaximumSumSubArray1(arr) << endl;
-    cout << Solution2 .MaximumSumSubArray(arr) << endl;
-    return 0;
+    // vector<int> arr = {-2,1,-3,4,-1,2,1,-5,4};
+    vector<int> arr = {-1};
+    auto S = BruteForceApproach();
+    auto R = KadaneAlgorithm();
+    cout << S.solve(arr) << endl;
+    cout << R.solve(arr) << endl;
 }
