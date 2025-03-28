@@ -7,10 +7,13 @@ class KadaneAlgorithm{
     */
 public:
     int solve(vector<int>& arr){
-        int MAX_PRODUCT = arr[0];
-        int MIN_PRODUCT = arr[0];
-        int p = 1;
         int n = arr.size();
+        if(n==1){
+            return arr[0];
+        }
+        int MAX_PRODUCT = 1;
+        int MIN_PRODUCT = 1;
+        int p = 0;
         int MAX_GLOBAL = INT_MIN;
         while(p<n){
             if(arr[p] < 0){
